@@ -7,5 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="extentreports-5.0.5" level="project" />
+    <orderEntry type="library" name="batik-all-1.13" level="project" />
+    <orderEntry type="library" name="async-http-client-2.12.3" level="project" />
+    <orderEntry type="library" name="sikulixapi" level="project" />
+    <orderEntry type="library" name="activation1" level="project" />
   </component>
 </module>
