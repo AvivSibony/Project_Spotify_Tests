@@ -164,21 +164,22 @@ public class SignUP {
                 } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
                 driver.navigate().refresh(); } // refresh the page //
              }
+            //// buttons from list check box ////
         for(String x:list_of_steps_check_box){
             if(x.startsWith("clicked")) {
                 // only one click //
-                RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).click();
+                CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).click();
                 sleep(2000);
-                if(RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected()) {
+                if(CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected()) {
                 // if the button was click //
                 write_to_excel_and_read.write_to_excel("clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
                 } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",list_of_steps.indexOf(x)); } // write fail in Excel file //
                 driver.navigate().refresh(); }// refresh the page //
             if(x.startsWith("always")) {
                 // always clicked //
-                RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // first click - need to be clicked //
-                RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // second click - need to be un-clicked //
-                if(RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected())
+                CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // first click - need to be clicked //
+                CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // second click - need to be un-clicked //
+                if(CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected())
                 { // if the button was click and now is un-clicked //
                     write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
                 } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
@@ -253,7 +254,7 @@ public class SignUP {
             }
         } username();}
     @Test()
-    public static void username ()throws IOException, InterruptedException {
+    public static void username ()throws IOException {
         for(String x:list_of_steps_username){
             USER(driver).sendKeys(x);
             if(USER(driver).getText().isEmpty()){
