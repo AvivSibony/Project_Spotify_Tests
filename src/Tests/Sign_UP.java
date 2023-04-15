@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import javax.sql.rowset.WebRowSet;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -17,6 +19,13 @@ public class Sign_UP {
     static String result;
     public static WebElement EMAIL(WebDriver driver) {
         return driver.findElement(By.id("email"));}
+    public static WebElement ALREADY_CONNECTED_EMAIL(WebDriver driver) {
+        return driver.findElement(By.xpath("//span[@class='LinkContainer-sc-1t58wcv-0 bSSutB']"));}
+    public static WebElement INVALID_EMAIL(WebDriver driver) {
+        return driver.findElement(By.xpath("//span[@class='LinkContainer-sc-1t58wcv-0 bSSutB']"));}
+    public static WebElement EMPTY_EMAIL_LABEL(WebDriver driver) {
+        return driver.findElement(By.xpath("//span[@class='LinkContainer-sc-1t58wcv-0 bSSutB']"));}
+
     public static WebElement CONFIRM_EMAIL(WebDriver driver) {
         return driver.findElement(By.id("confirm"));
     }
@@ -164,7 +173,25 @@ public class Sign_UP {
         @Test(enabled = true)
         public static void email ()throws IOException, InterruptedException {
         for(String x : list_of_steps_email){
-            System.out.println(x);
+            EMAIL(driver).clear();
+            EMAIL(driver).sendKeys(x);
+            if(ALREADY_CONNECTED_EMAIL(driver).getText().equals("This email is already connected to an account. Log in."))
+            { // if we have a comment of duplicate email in the system //
+                write_to_excel_and_read.write_to_excel(ALREADY_CONNECTED_EMAIL(driver).getText(),list_of_steps.indexOf(x));
+            }
+            else if(INVALID_EMAIL(driver).getText().equals("This email is invalid. Make sure it's written like example@email.com"))
+            { // if we have a comment of invalid email //
+                write_to_excel_and_read.write_to_excel(INVALID_EMAIL(driver).getText(),list_of_steps.indexOf(x));
+            }
+            else if(EMPTY_EMAIL_LABEL(driver).getText().equals("You need to enter your email."))
+            { // if we have a comment of empty email label //
+                write_to_excel_and_read.write_to_excel(EMPTY_EMAIL_LABEL(driver).getText(),list_of_steps.indexOf(x));
+            }
+            else
+            { // if we have not got a comment --> writing correct email //
+                write_to_excel_and_read.write_to_excel(x,list_of_steps.indexOf(x));
+            }
+
         }
 
 
