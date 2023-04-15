@@ -33,10 +33,12 @@ public class SignUP {
     public static WebElement USER(WebDriver driver) {return driver.findElement(By.id("displayname"));}
     public static WebElement EMPTY_USER(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='Enter a name for your profile.']"));}
     public static WebElement DAY(WebDriver driver) {return driver.findElement(By.id("day"));}
-    public static WebElement MONTH(WebDriver driver) {
-        return driver.findElement(By.id("month"));}
-    public static WebElement YEAR(WebDriver driver) {
-        return  driver.findElement(By.id("year"));}
+    public static WebElement INVALID_DAY(WebDriver driver) {return driver.findElement(By.xpath("da//span[text()='Enter a valid day of the month.']"));}
+    public static WebElement MONTH(WebDriver driver,int i) {
+        List<WebElement> MONTH = driver.findElements(By.xpath("//select/option"));
+        return MONTH.get(i);}
+    public static WebElement YEAR(WebDriver driver) {return  driver.findElement(By.id("year"));}
+    public static WebElement INVALID_YEAR(WebDriver driver) {return  driver.findElement(By.xpath("//span[text()='Enter a valid year.']"));}
     public static WebElement RADIO_BOX(WebDriver driver,int i) {
         List<WebElement> RADIO_BOX = driver.findElements(By.xpath("//span[@class='Indicator-sc-hjfusp-0 benotq']"));
         return (WebElement) RADIO_BOX.get(i);
@@ -234,7 +236,7 @@ public class SignUP {
 
     }
     @Test()
-    public static void pw ()throws IOException, InterruptedException {
+    public static void pw ()throws IOException {
         for(String x:list_of_steps_pw){
             PASSWORD(driver).clear();
             PASSWORD(driver).sendKeys(x);
@@ -266,14 +268,82 @@ public class SignUP {
 
         }
         @Test()
-        public static void age_d_m_y ()throws IOException, InterruptedException {
-
-
+        public static void age_d_m_y ()throws IOException {
+        for(String x:list_of_steps_age_day){
+            //// tests for day label ////
+            DAY(driver).clear();
+            DAY(driver).sendKeys(x);
+            if(INVALID_DAY(driver).isDisplayed()){
+                // if we write letters/signs/x>32 //
+                write_to_excel_and_read.write_to_excel(INVALID_DAY(driver).getText(),list_of_steps.indexOf(x));
+            }else{ write_to_excel_and_read.write_to_excel("good day - "+x,list_of_steps.indexOf(x));}
         }
+        YEAR(driver).sendKeys("2023"); // write a correct year for month test //
+        for(int x=1;x<=13;x++) { //// !!!! need to change in the file the names of the months instead the steps i wrote !!!! ////
+            //// tests for month label -- check pass/fail of two states in a month ////
+            MONTH(driver, x).click();
+            if ((MONTH(driver, x).getText().equals("January")) || (MONTH(driver, x).getText().equals("March"))
+                || (MONTH(driver, x).getText().equals("May")) || (MONTH(driver, x).getText().equals("July"))
+                || (MONTH(driver, x).getText().equals("August")) || (MONTH(driver, x).getText().equals("October"))
+                || (MONTH(driver, x).getText().equals("December"))){
+                //// month == january/March/May/July/August/October/December [7 months] ////
+                DAY(driver).sendKeys("32");
+                if (INVALID_DAY(driver).isDisplayed()) {
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                } else {
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                }
+                DAY(driver).clear();
+                DAY(driver).sendKeys("31");
+                if (INVALID_DAY(driver).isDisplayed()) {
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                } else {
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                }
+            }
 
-
-    }
-
-
-
-
+            if (MONTH(driver, x).getText().equals("April") || (MONTH(driver, x).getText().equals("June"))
+                || (MONTH(driver, x).getText().equals("September")) ||(MONTH(driver, x).getText().equals("November"))) {
+                //// months == April/September/June/November [4 months] ////
+                DAY(driver).sendKeys("30");
+                if (INVALID_DAY(driver).isDisplayed()) {
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                } else {
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                }
+                DAY(driver).clear();
+                DAY(driver).sendKeys("31");
+                if (INVALID_DAY(driver).isDisplayed()) {
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                } else {
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                }
+            }
+            if (MONTH(driver, x).getText().equals("February")) {
+                //// month == February ////
+                DAY(driver).sendKeys("29");
+                if (INVALID_DAY(driver).isDisplayed()) {
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                } else {
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                }
+                DAY(driver).clear();
+                DAY(driver).sendKeys("28");
+                if (INVALID_DAY(driver).isDisplayed()) {
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                } else {
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                }
+            }
+        } driver.navigate().refresh(); // clear all labels //
+        for(String x:list_of_steps_age_year){
+            //// tests for year label ////
+            YEAR(driver).clear();
+            YEAR(driver).sendKeys(x);
+            if(INVALID_YEAR(driver).isDisplayed()){
+                // if I write wrong year //
+                write_to_excel_and_read.write_to_excel(INVALID_YEAR(driver).getText(),list_of_steps.indexOf(x));
+            }else{ write_to_excel_and_read.write_to_excel("good year - "+x,list_of_steps.indexOf(x));}
+        }
+        }
+}
