@@ -31,6 +31,7 @@ public class SignUP {
     public static WebElement SHORT_PASSWORD(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='Your password is too short.']"));}
     public static WebElement EMPTY_PASSWORD(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='You need to enter a password.']"));}
     public static WebElement USER(WebDriver driver) {return driver.findElement(By.id("displayname"));}
+    public static WebElement EMPTY_USER(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='Enter a name for your profile.']"));}
     public static WebElement DAY(WebDriver driver) {return driver.findElement(By.id("day"));}
     public static WebElement MONTH(WebDriver driver) {
         return driver.findElement(By.id("month"));}
@@ -122,7 +123,7 @@ public class SignUP {
         }
     @AfterClass
     public static void AfterClass() { driver.close();}
-
+/////////////////////////////////  TESTS - SIGN-UP  ///////////////////////////////////////
     @Test()
     public static void sign_up_first_btn() throws IOException, InterruptedException {
         for (String x : list_of_steps_sign_up_first_btn){
@@ -132,8 +133,8 @@ public class SignUP {
             driver.navigate().back(); // go back to the first page //
             write_to_excel_and_read.write_to_excel(result,list_of_steps.indexOf(x)); // write the data to the Excel file //
         } all_btns(); }
-        @Test()
-        public static void all_btns()throws IOException, InterruptedException {
+    @Test()
+    public static void all_btns()throws IOException, InterruptedException {
         for(String x : list_of_steps_all_btns) {
             //// buttons from list all_btn ////
             BTN(driver, list_of_steps_all_btns.indexOf(x)).click(); // button from the index we send //
@@ -144,7 +145,8 @@ public class SignUP {
         }
             //// buttons from list radio box ////
         for(String x: list_of_steps_radio_box){
-            if(x.startsWith("clicked")) { // only one click //
+            if(x.startsWith("clicked")) {
+                // only one click //
                 RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).click();
                 sleep(2000);
                 if(RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).isSelected()) {
@@ -152,20 +154,40 @@ public class SignUP {
                     write_to_excel_and_read.write_to_excel("clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
                 } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",list_of_steps.indexOf(x)); } // write fail in Excel file //
             driver.navigate().refresh(); }// refresh the page //
-
-            if(x.startsWith("always")) { // always clicked //
-                { // loop of many times we clicked on the radio box //
-                    RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).click(); // first click - need to be clicked //
-                    RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).click(); // second click - need to be un-clicked //
-                }
+            if(x.startsWith("always")) {
+                // always clicked //
+                RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).click(); // first click - need to be clicked //
+                RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).click(); // second click - need to be un-clicked //
                 if(RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).isSelected())
                 { // if the button was click and now is un-clicked //
                     write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
                 } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
                 driver.navigate().refresh(); } // refresh the page //
-             } email();}
-        @Test()
-        public static void email ()throws IOException, InterruptedException {
+             }
+        for(String x:list_of_steps_check_box){
+            if(x.startsWith("clicked")) {
+                // only one click //
+                RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).click();
+                sleep(2000);
+                if(RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected()) {
+                // if the button was click //
+                write_to_excel_and_read.write_to_excel("clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
+                } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",list_of_steps.indexOf(x)); } // write fail in Excel file //
+                driver.navigate().refresh(); }// refresh the page //
+            if(x.startsWith("always")) {
+                // always clicked //
+                RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // first click - need to be clicked //
+                RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // second click - need to be un-clicked //
+                if(RADIO_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected())
+                { // if the button was click and now is un-clicked //
+                    write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
+                } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
+                driver.navigate().refresh(); } // refresh the page //
+
+        }
+        email();}
+    @Test()
+    public static void email ()throws IOException {
         for(String x : list_of_steps_email){
             EMAIL(driver).clear();
             EMAIL(driver).sendKeys(x);
@@ -191,7 +213,7 @@ public class SignUP {
 
     }
     @Test()
-        public static void confirm_email ()throws IOException, InterruptedException {
+    public static void confirm_email ()throws IOException {
         for(String x:list_of_steps_confirm_email){
             String compere_email = "avivsibony@gmail.com";
             EMAIL(driver).sendKeys(compere_email);
@@ -210,8 +232,8 @@ public class SignUP {
         }
 
     }
-        @Test()
-        public static void pw ()throws IOException, InterruptedException {
+    @Test()
+    public static void pw ()throws IOException, InterruptedException {
         for(String x:list_of_steps_pw){
             PASSWORD(driver).clear();
             PASSWORD(driver).sendKeys(x);
@@ -227,11 +249,19 @@ public class SignUP {
                 write_to_excel_and_read.write_to_excel(WEAK_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
             }else{
                 // if the password is good //
-                write_to_excel_and_read.write_to_excel("good password "+x,list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel("good password - "+x,list_of_steps.indexOf(x));
             }
         } username();}
-        @Test()
-        public static void username ()throws IOException, InterruptedException {
+    @Test()
+    public static void username ()throws IOException, InterruptedException {
+        for(String x:list_of_steps_username){
+            USER(driver).sendKeys(x);
+            if(USER(driver).getText().isEmpty()){
+                // if the username label is empty //
+                write_to_excel_and_read.write_to_excel(EMPTY_USER(driver).getText(),list_of_steps.indexOf(x));
+            }
+            else{write_to_excel_and_read.write_to_excel("good username - "+x,list_of_steps.indexOf(x));}
+        }
 
         }
         @Test()
