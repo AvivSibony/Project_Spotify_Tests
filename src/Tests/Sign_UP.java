@@ -25,6 +25,10 @@ public class Sign_UP {
         return driver.findElement(By.xpath("//span[@class='LinkContainer-sc-1t58wcv-0 bSSutB']"));}
     public static WebElement EMPTY_EMAIL_LABEL(WebDriver driver) {
         return driver.findElement(By.xpath("//span[@class='LinkContainer-sc-1t58wcv-0 bSSutB']"));}
+    public static WebElement NEED_TO_CONFIRM(WebDriver driver) {
+        return driver.findElement(By.xpath("//span[text()='You need to confirm your email.']"));}
+    public static WebElement CONFIRM_DO_NOT_MATCH(WebDriver driver) {
+        return driver.findElement(By.xpath("/html/body/div[1]/main/div/div/form/div[2]/div[2]/span"));}
 
     public static WebElement CONFIRM_EMAIL(WebDriver driver) {
         return driver.findElement(By.id("confirm"));
@@ -191,14 +195,29 @@ public class Sign_UP {
             { // if we have not got a comment --> writing correct email //
                 write_to_excel_and_read.write_to_excel(x,list_of_steps.indexOf(x));
             }
-
+            EMAIL(driver).clear(); // clear the email label //
         }
 
 
     }
     @Test(priority = 4,enabled = true)
         public static void confirm_email ()throws IOException, InterruptedException {
-
+        for(String x:list_of_steps_confirm_email){
+            String compere_email = "avivsibony@gmail.com";
+            EMAIL(driver).sendKeys(compere_email);
+            CONFIRM_EMAIL(driver).sendKeys(x);
+            if(compere_email.equals(x)){
+                // if confirm_email == email //
+                write_to_excel_and_read.write_to_excel("Equal to - "+x,list_of_steps.indexOf(x));
+            }
+            else if(x.isEmpty() && NEED_TO_CONFIRM(driver).equals("You need to confirm your email.")){
+                // if you confirm_email is empty //
+                write_to_excel_and_read.write_to_excel(NEED_TO_CONFIRM(driver).getText(),list_of_steps.indexOf(x));
+            }
+            else{ // if confirm_email != email //
+                write_to_excel_and_read.write_to_excel(CONFIRM_DO_NOT_MATCH(driver).getText(),list_of_steps.indexOf(x)); }
+            CONFIRM_EMAIL(driver).clear(); // clear the confirmation label //
+        }
 
     }
         @Test(priority = 5,enabled = true)
