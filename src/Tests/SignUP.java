@@ -6,15 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import javax.sql.rowset.WebRowSet;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
-
 import static Tests.write_to_excel_and_read.*;
 import static java.lang.Thread.sleep;
-public class Sign_UP {
+public class SignUP {
     static WebDriver driver;
     static String result;
     public static WebElement EMAIL(WebDriver driver) {
@@ -29,19 +25,13 @@ public class Sign_UP {
         return driver.findElement(By.xpath("//span[text()='You need to confirm your email.']"));}
     public static WebElement CONFIRM_DO_NOT_MATCH(WebDriver driver) {
         return driver.findElement(By.xpath("/html/body/div[1]/main/div/div/form/div[2]/div[2]/span"));}
-
-    public static WebElement CONFIRM_EMAIL(WebDriver driver) {
-        return driver.findElement(By.id("confirm"));
-    }
-    public static WebElement PASSWORD(WebDriver driver) {
-        return driver.findElement(By.id("password"));
-    }
-    public static WebElement USER(WebDriver driver) {
-        return driver.findElement(By.id("displayname"));
-    }
-    public static WebElement DAY(WebDriver driver) {
-        return driver.findElement(By.id("day"));
-    }
+    public static WebElement CONFIRM_EMAIL(WebDriver driver) {return driver.findElement(By.id("confirm"));}
+    public static WebElement PASSWORD(WebDriver driver) {return driver.findElement(By.id("password"));}
+    public static WebElement WEAK_PASSWORD(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='Your password is too weak. Set a stronger one.']"));}
+    public static WebElement SHORT_PASSWORD(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='Your password is too short.']"));}
+    public static WebElement EMPTY_PASSWORD(WebDriver driver) {return driver.findElement(By.xpath("//span[text()='You need to enter a password.']"));}
+    public static WebElement USER(WebDriver driver) {return driver.findElement(By.id("displayname"));}
+    public static WebElement DAY(WebDriver driver) {return driver.findElement(By.id("day"));}
     public static WebElement MONTH(WebDriver driver) {
         return driver.findElement(By.id("month"));}
     public static WebElement YEAR(WebDriver driver) {
@@ -121,7 +111,7 @@ public class Sign_UP {
             if (i > locations_of_steps.get(10)){ // tests of check_box --> all_btns //
                 list_of_steps_check_box.add(list_of_steps.get(i));
             } }
-        email();
+        sign_up_first_btn();
     }
 
     @BeforeClass
@@ -133,7 +123,7 @@ public class Sign_UP {
     @AfterClass
     public static void AfterClass() { driver.close();}
 
-    @Test(enabled = true)
+    @Test()
     public static void sign_up_first_btn() throws IOException, InterruptedException {
         for (String x : list_of_steps_sign_up_first_btn){
             SIGNUP(driver).click(); // click on sign-up button //
@@ -142,7 +132,7 @@ public class Sign_UP {
             driver.navigate().back(); // go back to the first page //
             write_to_excel_and_read.write_to_excel(result,list_of_steps.indexOf(x)); // write the data to the Excel file //
         } all_btns(); }
-        @Test(enabled = true)
+        @Test()
         public static void all_btns()throws IOException, InterruptedException {
         for(String x : list_of_steps_all_btns) {
             //// buttons from list all_btn ////
@@ -174,7 +164,7 @@ public class Sign_UP {
                 } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
                 driver.navigate().refresh(); } // refresh the page //
              } email();}
-        @Test(enabled = true)
+        @Test()
         public static void email ()throws IOException, InterruptedException {
         for(String x : list_of_steps_email){
             EMAIL(driver).clear();
@@ -200,7 +190,7 @@ public class Sign_UP {
 
 
     }
-    @Test(priority = 4,enabled = true)
+    @Test()
         public static void confirm_email ()throws IOException, InterruptedException {
         for(String x:list_of_steps_confirm_email){
             String compere_email = "avivsibony@gmail.com";
@@ -220,15 +210,31 @@ public class Sign_UP {
         }
 
     }
-        @Test(priority = 5,enabled = true)
+        @Test()
         public static void pw ()throws IOException, InterruptedException {
-
-        }
-        @Test(priority = 6,enabled = true)
+        for(String x:list_of_steps_pw){
+            PASSWORD(driver).clear();
+            PASSWORD(driver).sendKeys(x);
+            if(EMPTY_PASSWORD(driver).isDisplayed()){
+                // if the label is empty //
+                write_to_excel_and_read.write_to_excel(EMPTY_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
+            }
+            else if(SHORT_PASSWORD(driver).isDisplayed()){
+                // if the password is too short //
+                write_to_excel_and_read.write_to_excel(SHORT_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
+            }else if(WEAK_PASSWORD(driver).isDisplayed()){
+                // if the password is too weak //
+                write_to_excel_and_read.write_to_excel(WEAK_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
+            }else{
+                // if the password is good //
+                write_to_excel_and_read.write_to_excel("good password "+x,list_of_steps.indexOf(x));
+            }
+        } username();}
+        @Test()
         public static void username ()throws IOException, InterruptedException {
 
         }
-        @Test(priority = 7,enabled = true)
+        @Test()
         public static void age_d_m_y ()throws IOException, InterruptedException {
 
 

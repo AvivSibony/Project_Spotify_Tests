@@ -1,22 +1,19 @@
 package Tests;
-
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class write_to_excel_and_read {
-    static List<Integer> locations_of_steps = new ArrayList<>();
-    static String filepath = "C:\\Users\\asibonyx\\OneDrive - Intel Corporation\\spotify.xlsx";
+
+    public static String filepath = "C:\\Users\\asibonyx\\OneDrive - Intel Corporation\\spotify.xlsx";
     public static String[] sheet_name = {"entry"};// I can add more
-    static XSSFSheet sheet;
     static int num_value = 0;
     static String value;
+    public static List<Integer> locations_of_steps = new ArrayList<>();
     public static List<String> list_of_steps = new ArrayList<>();
     public static List<String> list_of_steps_email = new ArrayList<>();
     public static List<String> list_of_steps_sign_up_first_btn = new ArrayList<>();
@@ -30,7 +27,7 @@ public class write_to_excel_and_read {
     public static List<String> list_of_steps_radio_box = new ArrayList<>();
     public static List<String> list_of_steps_check_box = new ArrayList<>();
 
-    public static void read_from_excel(String SheetName) throws IOException, InterruptedException {
+    public static void read_from_excel(String SheetName) throws IOException {
         FileInputStream file = new FileInputStream(filepath);
         XSSFWorkbook wb = new XSSFWorkbook(file);
         XSSFSheet sheet = wb.getSheet(SheetName);
