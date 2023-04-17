@@ -186,9 +186,7 @@ public class SignUP {
                     write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
                 } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
                 driver.navigate().refresh(); } // refresh the page //
-
-        }
-        email();}
+             } email();}
     @Test()
     public static void email ()throws IOException {
         for(String x : list_of_steps_email){
@@ -211,10 +209,7 @@ public class SignUP {
                 write_to_excel_and_read.write_to_excel(x,list_of_steps.indexOf(x));
             }
             EMAIL(driver).clear(); // clear the email label //
-        }
-
-
-    }
+        } confirm_email();}
     @Test()
     public static void confirm_email ()throws IOException {
         for(String x:list_of_steps_confirm_email){
@@ -232,9 +227,7 @@ public class SignUP {
             else{ // if confirm_email != email //
                 write_to_excel_and_read.write_to_excel(CONFIRM_DO_NOT_MATCH(driver).getText(),list_of_steps.indexOf(x)); }
             CONFIRM_EMAIL(driver).clear(); // clear the confirmation label //
-        }
-
-    }
+        }pw(); }
     @Test()
     public static void pw ()throws IOException {
         for(String x:list_of_steps_pw){
@@ -254,7 +247,7 @@ public class SignUP {
                 // if the password is good //
                 write_to_excel_and_read.write_to_excel("good password - "+x,list_of_steps.indexOf(x));
             }
-        } username();}
+        }username();}
     @Test()
     public static void username ()throws IOException {
         for(String x:list_of_steps_username){
@@ -264,9 +257,7 @@ public class SignUP {
                 write_to_excel_and_read.write_to_excel(EMPTY_USER(driver).getText(),list_of_steps.indexOf(x));
             }
             else{write_to_excel_and_read.write_to_excel("good username - "+x,list_of_steps.indexOf(x));}
-        }
-
-        }
+        }age_d_m_y();}
         @Test()
         public static void age_d_m_y ()throws IOException {
         for(String x:list_of_steps_age_day){
@@ -346,4 +337,5 @@ public class SignUP {
             }else{ write_to_excel_and_read.write_to_excel("good year - "+x,list_of_steps.indexOf(x));}
         }
         }
+
 }

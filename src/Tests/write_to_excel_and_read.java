@@ -10,7 +10,6 @@ import java.util.List;
 public class write_to_excel_and_read {
 
     public static String filepath = "C:\\Users\\asibonyx\\OneDrive - Intel Corporation\\spotify.xlsx";
-    public static String[] sheet_name = {"entry"};// I can add more
     static int num_value = 0;
     static String value;
     public static List<Integer> locations_of_steps = new ArrayList<>();
