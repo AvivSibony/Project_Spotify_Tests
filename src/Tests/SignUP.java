@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static Tests.write_to_excel_and_read.*;
 import static java.lang.Thread.sleep;
 public class SignUP {
     public static WebDriver driver;
@@ -66,65 +65,65 @@ public class SignUP {
     public static WebElement SIGNUP(WebDriver driver) { return driver.findElement(By.xpath("//span[text()='Sign up']"));}
     // POM Elements //
     public static void signUP_tests() throws IOException, InterruptedException  {
-        for (int j = 0; j < list_of_steps.size(); j++) {
-            switch (list_of_steps.get(j)) {
-                case "sign_up_first_btn": locations_of_steps.add(j);
+        for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
+            switch (write_to_excel_and_read.list_of_steps.get(j)) {
+                case "sign_up_first_btn": write_to_excel_and_read.locations_of_steps.add(j);
                     break;
-                case "email": locations_of_steps.add(j);
+                case "email": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "confirm_email": locations_of_steps.add(j);
+                case "confirm_email": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "pw": locations_of_steps.add(j);
+                case "pw": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "username": locations_of_steps.add(j);
+                case "username": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "all_btns": locations_of_steps.add(j);
+                case "all_btns": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "day": locations_of_steps.add(j);
+                case "day": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "month": locations_of_steps.add(j);
+                case "month": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "year": locations_of_steps.add(j);
+                case "year": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "radio box": locations_of_steps.add(j);
+                case "radio box": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
-                case "check box": locations_of_steps.add(j);
+                case "check box": write_to_excel_and_read.locations_of_steps.add(j);;
                     break;
             }
         }
-        for (int i = 0; i < list_of_steps.size(); i++) {
-            if (i > locations_of_steps.get(0) && i < locations_of_steps.get(1)) {// tests of sign_up_first_btn //
-                list_of_steps_sign_up_first_btn.add(list_of_steps.get(i));
+        for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
+            if (i > write_to_excel_and_read.locations_of_steps.get(0) && i < write_to_excel_and_read.locations_of_steps.get(1)) {// tests of sign_up_first_btn //
+                list_of_steps_sign_up_first_btn.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(1) && i < locations_of_steps.get(2)) {// tests of all_btns //
-                list_of_steps_all_btns.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(1) && i < write_to_excel_and_read.locations_of_steps.get(2)) {// tests of all_btns //
+                list_of_steps_all_btns.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(2) && i < locations_of_steps.get(3)) {// tests of confirm_email //
-                list_of_steps_confirm_email.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(2) && i < write_to_excel_and_read.locations_of_steps.get(3)) {// tests of confirm_email //
+                list_of_steps_confirm_email.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(3) && i < locations_of_steps.get(4)) {  // tests of pw //
-                list_of_steps_pw.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(3) && i < write_to_excel_and_read.locations_of_steps.get(4)) {  // tests of pw //
+                list_of_steps_pw.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(4) && i < locations_of_steps.get(5)) {// tests of username //
-                list_of_steps_username.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(4) && i < write_to_excel_and_read.locations_of_steps.get(5)) {// tests of username //
+                list_of_steps_username.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(5) && i < locations_of_steps.get(6)) {// tests of all_btns //
-                list_of_steps_all_btns.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(5) && i < write_to_excel_and_read.locations_of_steps.get(6)) {// tests of all_btns //
+                list_of_steps_all_btns.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(6) && i < locations_of_steps.get(7)) {// tests of age_d_m_y - day //
-                list_of_steps_age_day.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(6) && i < write_to_excel_and_read.locations_of_steps.get(7)) {// tests of age_d_m_y - day //
+                list_of_steps_age_day.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(7) && i < locations_of_steps.get(8)) {// tests of age_d_m_y - month //
-                list_of_steps_age_month.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(7) && i < write_to_excel_and_read.locations_of_steps.get(8)) {// tests of age_d_m_y - month //
+                list_of_steps_age_month.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(8) && i < locations_of_steps.get(9)) { // tests of age_d_m_y - year //
-                list_of_steps_age_year.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(8) && i < write_to_excel_and_read.locations_of_steps.get(9)) { // tests of age_d_m_y - year //
+                list_of_steps_age_year.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(9) && i < locations_of_steps.get(10)){ // tests of radio_box --> all btns //
-                list_of_steps_radio_box.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(9) && i < write_to_excel_and_read.locations_of_steps.get(10)){ // tests of radio_box --> all btns //
+                list_of_steps_radio_box.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(10)){ // tests of check_box --> all_btns //
-                list_of_steps_check_box.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(10)){ // tests of check_box --> all_btns //
+                list_of_steps_check_box.add(write_to_excel_and_read.list_of_steps.get(i));
             } }
         sign_up_first_btn();
     }
@@ -146,7 +145,7 @@ public class SignUP {
             sleep(2000); // delay 2 seconds //
             result = driver.getCurrentUrl(); // get the URL of the page - from the URL I need to see sign-up//
             driver.navigate().back(); // go back to the first page //
-            write_to_excel_and_read.write_to_excel(result,list_of_steps.indexOf(x)); // write the data to the Excel file //
+            write_to_excel_and_read.write_to_excel(result,write_to_excel_and_read.list_of_steps.indexOf(x)); // write the data to the Excel file //
         } all_btns(); }
     @Test()
     public static void all_btns()throws IOException, InterruptedException {
@@ -156,7 +155,7 @@ public class SignUP {
             result = driver.getCurrentUrl(); // get the URL of the page //
             sleep(2000);
             driver.navigate().back(); // go back to sign-up page //
-            write_to_excel_and_read.write_to_excel(result,list_of_steps.indexOf(x)); // write the data to the Excel file //
+            write_to_excel_and_read.write_to_excel(result,write_to_excel_and_read.list_of_steps.indexOf(x)); // write the data to the Excel file //
         }
             //// buttons from list radio box ////
         for(String x: list_of_steps_radio_box){
@@ -166,8 +165,8 @@ public class SignUP {
                 sleep(2000);
                 if(RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).isSelected()) {
                     // if the button was click //
-                    write_to_excel_and_read.write_to_excel("clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
-                } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",list_of_steps.indexOf(x)); } // write fail in Excel file //
+                    write_to_excel_and_read.write_to_excel("clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); // write clicked in Excel file //
+                } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); } // write fail in Excel file //
             driver.navigate().refresh(); }// refresh the page //
             if(x.startsWith("always")) {
                 // always clicked //
@@ -175,8 +174,8 @@ public class SignUP {
                 RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).click(); // second click - need to be un-clicked //
                 if(RADIO_BOX(driver, list_of_steps_radio_box.indexOf(x)).isSelected())
                 { // if the button was click and now is un-clicked //
-                    write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
-                } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
+                    write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); // write clicked in Excel file //
+                } else{write_to_excel_and_read.write_to_excel("not clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); } // write fail in Excel //
                 driver.navigate().refresh(); } // refresh the page //
              }
             //// buttons from list check box ////
@@ -187,8 +186,8 @@ public class SignUP {
                 sleep(2000);
                 if(CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected()) {
                 // if the button was click //
-                write_to_excel_and_read.write_to_excel("clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
-                } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",list_of_steps.indexOf(x)); } // write fail in Excel file //
+                write_to_excel_and_read.write_to_excel("clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); // write clicked in Excel file //
+                } else{write_to_excel_and_read.write_to_excel("FAIL - not clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); } // write fail in Excel file //
                 driver.navigate().refresh(); }// refresh the page //
             if(x.startsWith("always")) {
                 // always clicked //
@@ -196,8 +195,8 @@ public class SignUP {
                 CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).click(); // second click - need to be un-clicked //
                 if(CHECK_BOX(driver, list_of_steps_check_box.indexOf(x)).isSelected())
                 { // if the button was click and now is un-clicked //
-                    write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",list_of_steps.indexOf(x)); // write clicked in Excel file //
-                } else{write_to_excel_and_read.write_to_excel("not clicked",list_of_steps.indexOf(x)); } // write fail in Excel //
+                    write_to_excel_and_read.write_to_excel("FAIL - clicked,need to un-clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); // write clicked in Excel file //
+                } else{write_to_excel_and_read.write_to_excel("not clicked",write_to_excel_and_read.list_of_steps.indexOf(x)); } // write fail in Excel //
                 driver.navigate().refresh(); } // refresh the page //
              } email();}
     @Test()
@@ -207,19 +206,19 @@ public class SignUP {
             EMAIL(driver).sendKeys(x);
             if(ALREADY_CONNECTED_EMAIL(driver).getText().equals("This email is already connected to an account. Log in."))
             { // if we have a comment of duplicate email in the system //
-                write_to_excel_and_read.write_to_excel(ALREADY_CONNECTED_EMAIL(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(ALREADY_CONNECTED_EMAIL(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             else if(INVALID_EMAIL(driver).getText().equals("This email is invalid. Make sure it's written like example@email.com"))
             { // if we have a comment of invalid email //
-                write_to_excel_and_read.write_to_excel(INVALID_EMAIL(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(INVALID_EMAIL(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             else if(EMPTY_EMAIL_LABEL(driver).getText().equals("You need to enter your email."))
             { // if we have a comment of empty email label //
-                write_to_excel_and_read.write_to_excel(EMPTY_EMAIL_LABEL(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(EMPTY_EMAIL_LABEL(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             else
             { // if we have not got a comment --> writing correct email //
-                write_to_excel_and_read.write_to_excel(x,list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(x,write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             EMAIL(driver).clear(); // clear the email label //
         } confirm_email();}
@@ -231,14 +230,14 @@ public class SignUP {
             CONFIRM_EMAIL(driver).sendKeys(x);
             if(compere_email.equals(x)){
                 // if confirm_email == email //
-                write_to_excel_and_read.write_to_excel("Equal to - "+x,list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel("Equal to - "+x,write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             else if(x.isEmpty() && NEED_TO_CONFIRM(driver).equals("You need to confirm your email.")){
                 // if you confirm_email is empty //
-                write_to_excel_and_read.write_to_excel(NEED_TO_CONFIRM(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(NEED_TO_CONFIRM(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             else{ // if confirm_email != email //
-                write_to_excel_and_read.write_to_excel(CONFIRM_DO_NOT_MATCH(driver).getText(),list_of_steps.indexOf(x)); }
+                write_to_excel_and_read.write_to_excel(CONFIRM_DO_NOT_MATCH(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x)); }
             CONFIRM_EMAIL(driver).clear(); // clear the confirmation label //
         }pw(); }
     @Test()
@@ -248,17 +247,17 @@ public class SignUP {
             PASSWORD(driver).sendKeys(x);
             if(EMPTY_PASSWORD(driver).isDisplayed()){
                 // if the label is empty //
-                write_to_excel_and_read.write_to_excel(EMPTY_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(EMPTY_PASSWORD(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }
             else if(SHORT_PASSWORD(driver).isDisplayed()){
                 // if the password is too short //
-                write_to_excel_and_read.write_to_excel(SHORT_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(SHORT_PASSWORD(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }else if(WEAK_PASSWORD(driver).isDisplayed()){
                 // if the password is too weak //
-                write_to_excel_and_read.write_to_excel(WEAK_PASSWORD(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(WEAK_PASSWORD(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }else{
                 // if the password is good //
-                write_to_excel_and_read.write_to_excel("good password - "+x,list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel("good password - "+x,write_to_excel_and_read.list_of_steps.indexOf(x));
             }
         }username();}
     @Test()
@@ -267,9 +266,9 @@ public class SignUP {
             USER(driver).sendKeys(x);
             if(USER(driver).getText().isEmpty()){
                 // if the username label is empty //
-                write_to_excel_and_read.write_to_excel(EMPTY_USER(driver).getText(),list_of_steps.indexOf(x));
+                write_to_excel_and_read.write_to_excel(EMPTY_USER(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
             }
-            else{write_to_excel_and_read.write_to_excel("good username - "+x,list_of_steps.indexOf(x));}
+            else{write_to_excel_and_read.write_to_excel("good username - "+x,write_to_excel_and_read.list_of_steps.indexOf(x));}
         }age_d_m_y();}
         @Test()
         public static void age_d_m_y ()throws IOException {
@@ -279,8 +278,8 @@ public class SignUP {
             DAY(driver).sendKeys(x);
             if(INVALID_DAY(driver).isDisplayed()){
                 // if we write letters/signs/x>32 //
-                write_to_excel_and_read.write_to_excel(INVALID_DAY(driver).getText(),list_of_steps.indexOf(x));
-            }else{ write_to_excel_and_read.write_to_excel("good day - "+x,list_of_steps.indexOf(x));}
+                write_to_excel_and_read.write_to_excel(INVALID_DAY(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
+            }else{ write_to_excel_and_read.write_to_excel("good day - "+x,write_to_excel_and_read.list_of_steps.indexOf(x));}
         }
         YEAR(driver).sendKeys("2023"); // write a correct year for month test //
         for(int x=1;x<=13;x++) { //// !!!! need to change in the file the names of the months instead the steps i wrote !!!! ////
@@ -293,16 +292,16 @@ public class SignUP {
                 //// month == january/March/May/July/August/October/December [7 months] ////
                 DAY(driver).sendKeys("32");
                 if (INVALID_DAY(driver).isDisplayed()) {
-                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 } else {
-                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 }
                 DAY(driver).clear();
                 DAY(driver).sendKeys("31");
                 if (INVALID_DAY(driver).isDisplayed()) {
-                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 } else {
-                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 }
             }
 
@@ -311,32 +310,32 @@ public class SignUP {
                 //// months == April/September/June/November [4 months] ////
                 DAY(driver).sendKeys("30");
                 if (INVALID_DAY(driver).isDisplayed()) {
-                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 } else {
-                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 }
                 DAY(driver).clear();
                 DAY(driver).sendKeys("31");
                 if (INVALID_DAY(driver).isDisplayed()) {
-                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 } else {
-                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 }
             }
             if (MONTH(driver, x).getText().equals("February")) {
                 //// month == February ////
                 DAY(driver).sendKeys("29");
                 if (INVALID_DAY(driver).isDisplayed()) {
-                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 } else {
-                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 }
                 DAY(driver).clear();
                 DAY(driver).sendKeys("28");
                 if (INVALID_DAY(driver).isDisplayed()) {
-                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + INVALID_DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 } else {
-                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), list_of_steps.indexOf(x));
+                    write_to_excel_and_read.write_to_excel("the day is " + DAY(driver).getText() + " in month -" + MONTH(driver, x), write_to_excel_and_read.list_of_steps.indexOf(x));
                 }
             }
         } driver.navigate().refresh(); // clear all labels //
@@ -346,8 +345,8 @@ public class SignUP {
             YEAR(driver).sendKeys(x);
             if(INVALID_YEAR(driver).isDisplayed()){
                 // if I write wrong year //
-                write_to_excel_and_read.write_to_excel(INVALID_YEAR(driver).getText(),list_of_steps.indexOf(x));
-            }else{ write_to_excel_and_read.write_to_excel("good year - "+x,list_of_steps.indexOf(x));}
+                write_to_excel_and_read.write_to_excel(INVALID_YEAR(driver).getText(),write_to_excel_and_read.list_of_steps.indexOf(x));
+            }else{ write_to_excel_and_read.write_to_excel("good year - "+x,write_to_excel_and_read.list_of_steps.indexOf(x));}
         }
         }
 

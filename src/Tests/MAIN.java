@@ -1,11 +1,11 @@
 package Tests;
 import java.io.IOException;
-import static Tests.write_to_excel_and_read.*;
+
 public class MAIN {
 static String[] sheet_name = {"signup","login"};
     public static void main(String[] args) throws IOException, InterruptedException {
         for (String s : sheet_name) {
-            read_from_excel(s);
+            write_to_excel_and_read.read_from_excel(s);
             if (s.equals("signup")) { // or write with switch case
                 SignUP.signUP_tests(); // class of sheet = signup , with all the connected tests //
             }

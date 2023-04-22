@@ -1,14 +1,10 @@
 package Tests;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static Tests.write_to_excel_and_read.*;
 
 public class LogIN {
 public static List<String> list_of_steps_first_login = new ArrayList<>();
@@ -38,49 +34,49 @@ public static WebElement LOGIN_OFFICIAL(WebDriver driver) {
 public static WebElement GO_SIGNUP(WebDriver driver) {
         return SignUP.driver.findElement(By.xpath("//span[text()='Sign up for Spotify']")); }
 
-    public static void LOGIN_Tests(){for (int j = 0; j < list_of_steps.size(); j++) {
-        switch (list_of_steps.get(j)) {
-            case "log_in_first_btn": locations_of_steps.add(j);
+    public static void LOGIN_Tests(){for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
+        switch (write_to_excel_and_read.list_of_steps.get(j)) {
+            case "log_in_first_btn": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "social_buttons": locations_of_steps.add(j);
+            case "social_buttons": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "username": locations_of_steps.add(j);
+            case "username": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "password": locations_of_steps.add(j);
+            case "password": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "forgot_password": locations_of_steps.add(j);
+            case "forgot_password": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "check_box": locations_of_steps.add(j);
+            case "check_box": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "login": locations_of_steps.add(j);
+            case "login": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
-            case "go_signup": locations_of_steps.add(j);
+            case "go_signup": write_to_excel_and_read.locations_of_steps.add(j);
                 break;
         }
-        for (int i = 0; i < list_of_steps.size(); i++) {
-            if (i > locations_of_steps.get(0) && i < locations_of_steps.get(1)) {// tests of login first button //
-                list_of_steps_first_login.add(list_of_steps.get(i));
+        for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
+            if (i > write_to_excel_and_read.locations_of_steps.get(0) && i < write_to_excel_and_read.locations_of_steps.get(1)) {// tests of login first button //
+                list_of_steps_first_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(1) && i < locations_of_steps.get(2)) {// tests of social buttons //
-                list_of_steps_social.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(1) && i < write_to_excel_and_read.locations_of_steps.get(2)) {// tests of social buttons //
+                list_of_steps_social.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(2) && i < locations_of_steps.get(3)) {// tests of username //
-                list_of_steps_username_login.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(2) && i < write_to_excel_and_read.locations_of_steps.get(3)) {// tests of username //
+                list_of_steps_username_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(3) && i < locations_of_steps.get(4)) {  // tests of password //
-                list_of_steps_password.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(3) && i < write_to_excel_and_read.locations_of_steps.get(4)) {  // tests of password //
+                list_of_steps_password.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(4) && i < locations_of_steps.get(5)) {// tests of forgot password//
-                list_of_steps_forgot_pw.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(4) && i < write_to_excel_and_read.locations_of_steps.get(5)) {// tests of forgot password//
+                list_of_steps_forgot_pw.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(5) && i < locations_of_steps.get(6)) {// tests of checkbox //
-                list_of_steps_checkbox.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(5) && i < write_to_excel_and_read.locations_of_steps.get(6)) {// tests of checkbox //
+                list_of_steps_checkbox.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(6) && i < locations_of_steps.get(7)) {// tests of last login //
-                list_of_steps_last_login.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(6) && i < write_to_excel_and_read.locations_of_steps.get(7)) {// tests of last login //
+                list_of_steps_last_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > locations_of_steps.get(7) && i < locations_of_steps.get(8)) {// tests of go signup //
-                list_of_steps_go_signup.add(list_of_steps.get(i));
+            if (i > write_to_excel_and_read.locations_of_steps.get(7) && i < write_to_excel_and_read.locations_of_steps.get(8)) {// tests of go signup //
+                list_of_steps_go_signup.add(write_to_excel_and_read.list_of_steps.get(i));
             }
 
             } }
