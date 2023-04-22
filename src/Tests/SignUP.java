@@ -64,31 +64,20 @@ public class SignUP {
     }
     public static WebElement SIGNUP(WebDriver driver) { return driver.findElement(By.xpath("//span[text()='Sign up']"));}
     // POM Elements //
-    public static void signUP_tests() throws IOException, InterruptedException  {
+    public static void signUP_tests() {
         for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
             switch (write_to_excel_and_read.list_of_steps.get(j)) {
-                case "sign_up_first_btn": write_to_excel_and_read.locations_of_steps.add(j);
-                    break;
-                case "email": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "confirm_email": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "pw": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "username": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "all_btns": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "day": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "month": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "year": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "radio box": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
-                case "check box": write_to_excel_and_read.locations_of_steps.add(j);;
-                    break;
+                case "sign_up_first_btn" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "email" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "confirm_email" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "pw" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "username" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "all_btns" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "day" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "month" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "year" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "radio box" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "check box" -> write_to_excel_and_read.locations_of_steps.add(j);
             }
         }
         for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
@@ -125,7 +114,6 @@ public class SignUP {
             if (i > write_to_excel_and_read.locations_of_steps.get(10)){ // tests of check_box --> all_btns //
                 list_of_steps_check_box.add(write_to_excel_and_read.list_of_steps.get(i));
             } }
-        sign_up_first_btn();
     }
 
     @BeforeClass
@@ -146,7 +134,8 @@ public class SignUP {
             result = driver.getCurrentUrl(); // get the URL of the page - from the URL I need to see sign-up//
             driver.navigate().back(); // go back to the first page //
             write_to_excel_and_read.write_to_excel(result,write_to_excel_and_read.list_of_steps.indexOf(x)); // write the data to the Excel file //
-        } all_btns(); }
+        }
+        all_btns(); }
     @Test()
     public static void all_btns()throws IOException, InterruptedException {
         for(String x : list_of_steps_all_btns) {

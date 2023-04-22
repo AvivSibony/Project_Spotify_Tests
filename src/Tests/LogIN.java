@@ -3,6 +3,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,53 +36,54 @@ public static WebElement LOGIN_OFFICIAL(WebDriver driver) {
 public static WebElement GO_SIGNUP(WebDriver driver) {
         return SignUP.driver.findElement(By.xpath("//span[text()='Sign up for Spotify']")); }
 
-    public static void LOGIN_Tests(){for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
+    public static void LogIN_tests()throws IOException, InterruptedException{
+    for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
         switch (write_to_excel_and_read.list_of_steps.get(j)) {
-            case "log_in_first_btn": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "social_buttons": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "username": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "password": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "forgot_password": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "check_box": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "login": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-            case "go_signup": write_to_excel_and_read.locations_of_steps.add(j);
-                break;
-        }
+            case "log_in_first_btn" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "social_buttons" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "username" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "password" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "forgot_password" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "check_box" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "login" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "go_signup" -> write_to_excel_and_read.locations_of_steps2.add(j);
+        }}
+
         for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
-            if (i > write_to_excel_and_read.locations_of_steps.get(0) && i < write_to_excel_and_read.locations_of_steps.get(1)) {// tests of login first button //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(0) && i < write_to_excel_and_read.locations_of_steps2.get(1)) {// tests of login first button //
                 list_of_steps_first_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(1) && i < write_to_excel_and_read.locations_of_steps.get(2)) {// tests of social buttons //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(1) && i < write_to_excel_and_read.locations_of_steps2.get(2)) {// tests of social buttons //
                 list_of_steps_social.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(2) && i < write_to_excel_and_read.locations_of_steps.get(3)) {// tests of username //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(2) && i < write_to_excel_and_read.locations_of_steps2.get(3)) {// tests of username //
                 list_of_steps_username_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(3) && i < write_to_excel_and_read.locations_of_steps.get(4)) {  // tests of password //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(3) && i < write_to_excel_and_read.locations_of_steps2.get(4)) {  // tests of password //
                 list_of_steps_password.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(4) && i < write_to_excel_and_read.locations_of_steps.get(5)) {// tests of forgot password//
+            if (i > write_to_excel_and_read.locations_of_steps2.get(4) && i < write_to_excel_and_read.locations_of_steps2.get(5)) {// tests of forgot password//
                 list_of_steps_forgot_pw.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(5) && i < write_to_excel_and_read.locations_of_steps.get(6)) {// tests of checkbox //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(5) && i < write_to_excel_and_read.locations_of_steps2.get(6)) {// tests of checkbox //
                 list_of_steps_checkbox.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(6) && i < write_to_excel_and_read.locations_of_steps.get(7)) {// tests of last login //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(6) && i < write_to_excel_and_read.locations_of_steps2.get(7)) {// tests of last login //
                 list_of_steps_last_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-            if (i > write_to_excel_and_read.locations_of_steps.get(7) && i < write_to_excel_and_read.locations_of_steps.get(8)) {// tests of go signup //
+            if (i > write_to_excel_and_read.locations_of_steps2.get(7) ) {// tests of go signup //
                 list_of_steps_go_signup.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-
-            } }
-        log_in_first_btn();
+             }log_in_first_btn();
+        System.out.println(write_to_excel_and_read.locations_of_steps2);
+        System.out.println(list_of_steps_first_login);
+        System.out.println(list_of_steps_social);
+        System.out.println(list_of_steps_username_login);
+        System.out.println(list_of_steps_password);
+        System.out.println(list_of_steps_checkbox);
+        System.out.println(list_of_steps_forgot_pw);
+        System.out.println(list_of_steps_last_login);
+        System.out.println(list_of_steps_go_signup);
     }
 
 

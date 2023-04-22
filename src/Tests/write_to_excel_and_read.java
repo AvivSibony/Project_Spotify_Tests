@@ -13,11 +13,13 @@ public class write_to_excel_and_read {
     public static String filepath = "C:\\Users\\asibonyx\\OneDrive - Intel Corporation\\spotify.xlsx";
     static int num_value = 0;
     static String value;
-    public static List<Integer> locations_of_steps = new ArrayList<>();
+    public static List<Integer> locations_of_steps = new ArrayList<>(); // for sign up //
+    public static List<Integer> locations_of_steps2 = new ArrayList<>(); // for log in //
     public static List<String> list_of_steps = new ArrayList<>();
 
 
     public static void read_from_excel(String SheetName) throws IOException {
+        list_of_steps.clear();
         FileInputStream file = new FileInputStream(filepath);
         XSSFWorkbook wb = new XSSFWorkbook(file);
         XSSFSheet sheet = wb.getSheet(SheetName);
@@ -38,6 +40,7 @@ public class write_to_excel_and_read {
                 value = name_cell.getStringCellValue();
                 list_of_steps.add(value);
                 System.out.println(value + " = "+i);}
+
         } }
     public static void write_to_excel(String data, int location) throws IOException {
                 FileInputStream inputStream = new FileInputStream(filepath);// open Excel file //
