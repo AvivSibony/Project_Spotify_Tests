@@ -7,11 +7,23 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import static Tests.write_to_excel_and_read.*;
 import static java.lang.Thread.sleep;
 public class SignUP {
-    static WebDriver driver;
+    public static WebDriver driver;
+     static List<String> list_of_steps_email = new ArrayList<>();
+     static List<String> list_of_steps_sign_up_first_btn = new ArrayList<>();
+     static List<String> list_of_steps_confirm_email = new ArrayList<>();
+     static List<String> list_of_steps_pw = new ArrayList<>();
+     static List<String> list_of_steps_username = new ArrayList<>();
+     static List<String> list_of_steps_all_btns = new ArrayList<>();
+     static List<String> list_of_steps_age_day = new ArrayList<>();
+     static List<String> list_of_steps_age_month = new ArrayList<>();
+     static List<String> list_of_steps_age_year = new ArrayList<>();
+     static List<String> list_of_steps_radio_box = new ArrayList<>();
+     static List<String> list_of_steps_check_box = new ArrayList<>();
     static String result;
     public static WebElement EMAIL(WebDriver driver) {
         return driver.findElement(By.id("email"));}
@@ -53,7 +65,7 @@ public class SignUP {
     }
     public static WebElement SIGNUP(WebDriver driver) { return driver.findElement(By.xpath("//span[text()='Sign up']"));}
     // POM Elements //
-    public static void signUP_tests() throws IOException, InterruptedException {
+    public static void signUP_tests() throws IOException, InterruptedException  {
         for (int j = 0; j < list_of_steps.size(); j++) {
             switch (list_of_steps.get(j)) {
                 case "sign_up_first_btn": locations_of_steps.add(j);
@@ -122,6 +134,7 @@ public class SignUP {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://open.spotify.com/");
+
         }
     @AfterClass
     public static void AfterClass() { driver.close();}

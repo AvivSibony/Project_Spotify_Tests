@@ -14,17 +14,7 @@ public class write_to_excel_and_read {
     static String value;
     public static List<Integer> locations_of_steps = new ArrayList<>();
     public static List<String> list_of_steps = new ArrayList<>();
-    public static List<String> list_of_steps_email = new ArrayList<>();
-    public static List<String> list_of_steps_sign_up_first_btn = new ArrayList<>();
-    public static List<String> list_of_steps_confirm_email = new ArrayList<>();
-    public static List<String> list_of_steps_pw = new ArrayList<>();
-    public static List<String> list_of_steps_username = new ArrayList<>();
-    public static List<String> list_of_steps_all_btns = new ArrayList<>();
-    public static List<String> list_of_steps_age_day = new ArrayList<>();
-    public static List<String> list_of_steps_age_month = new ArrayList<>();
-    public static List<String> list_of_steps_age_year = new ArrayList<>();
-    public static List<String> list_of_steps_radio_box = new ArrayList<>();
-    public static List<String> list_of_steps_check_box = new ArrayList<>();
+
 
     public static void read_from_excel(String SheetName) throws IOException {
         FileInputStream file = new FileInputStream(filepath);
@@ -47,11 +37,7 @@ public class write_to_excel_and_read {
                 value = name_cell.getStringCellValue();
                 list_of_steps.add(value);
                 System.out.println(value + " = "+i);}
-
-        }
-
-
-    }
+        } }
     public static void write_to_excel(String data, int location) throws IOException {
                 FileInputStream inputStream = new FileInputStream(filepath);// open Excel file //
                 Workbook workbook = WorkbookFactory.create(inputStream);

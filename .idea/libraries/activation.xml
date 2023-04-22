@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="activation1">
+  <library name="activation">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../SELENIUM/files/mail/activation.jar!/" />
       <root url="jar://$PROJECT_DIR$/../SELENIUM/files/mail/dsn.jar!/" />

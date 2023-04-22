@@ -1,8 +1,6 @@
 <component name="libraryTable">
-  <library name="sikulixapi">
+  <library name="ashot-1.5.4">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../SELENIUM/files/sikuli newVs/sikulixapi.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../SELENIUM/files/sikuli newVs/sikulixsetup-1.1.3.jar!/" />
       <root url="jar://$PROJECT_DIR$/../SELENIUM/files/ashot-1.5.4.jar!/" />
       <root url="jar://$PROJECT_DIR$/../SELENIUM/files/ATUTestRecorder_2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/../SELENIUM/files/commons-io-2.6.jar!/" />
