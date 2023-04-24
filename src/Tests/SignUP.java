@@ -67,18 +67,19 @@ public class SignUP {
     public static void signUP_tests() {
         for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
             switch (write_to_excel_and_read.list_of_steps.get(j)) {
-                case "sign_up_first_btn" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "email" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "confirm_email" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "pw" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "username" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "all_btns" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "day" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "month" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "year" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "radio box" -> write_to_excel_and_read.locations_of_steps.add(j);
-                case "check box" -> write_to_excel_and_read.locations_of_steps.add(j);
+                case "sign_up_first_btn" -> write_to_excel_and_read.locations_of_steps.add(j); // 1 //
+                case "all_btns" -> write_to_excel_and_read.locations_of_steps.add(j); // 3 //
+                case "email" -> write_to_excel_and_read.locations_of_steps.add(j); // 11 //
+                case "confirm email" -> write_to_excel_and_read.locations_of_steps.add(j); // 48 //
+                case "pw" -> write_to_excel_and_read.locations_of_steps.add(j); // 85 //
+                case "username" -> write_to_excel_and_read.locations_of_steps.add(j); // 110 //
+                case "day" -> write_to_excel_and_read.locations_of_steps.add(j); // 137 //
+                case "month" -> write_to_excel_and_read.locations_of_steps.add(j); // 147 //
+                case "year" -> write_to_excel_and_read.locations_of_steps.add(j); // 160 //
+                case "radio box" -> write_to_excel_and_read.locations_of_steps.add(j); // 169 //
+                case "check box" -> write_to_excel_and_read.locations_of_steps.add(j); // 180 //
             }
+
         }
         for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
             if (i > write_to_excel_and_read.locations_of_steps.get(0) && i < write_to_excel_and_read.locations_of_steps.get(1)) {// tests of sign_up_first_btn //

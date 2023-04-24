@@ -39,17 +39,16 @@ public static WebElement GO_SIGNUP(WebDriver driver) {
     public static void LogIN_tests()throws IOException, InterruptedException{
     for (int j = 0; j < write_to_excel_and_read.list_of_steps.size(); j++) {
         switch (write_to_excel_and_read.list_of_steps.get(j)) {
-            case "log_in_first_btn" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "social_buttons" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "username" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "password" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "forgot_password" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "check_box" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "login" -> write_to_excel_and_read.locations_of_steps2.add(j);
-            case "go_signup" -> write_to_excel_and_read.locations_of_steps2.add(j);
+            case "log_in_first_btn" -> write_to_excel_and_read.locations_of_steps2.add(j); // 1 position //
+            case "social_buttons" -> write_to_excel_and_read.locations_of_steps2.add(j); // 3 position //
+            case "username" -> write_to_excel_and_read.locations_of_steps2.add(j); // 7 position //
+            case "password" -> write_to_excel_and_read.locations_of_steps2.add(j); // 51 position //
+            case "forgot_password" -> write_to_excel_and_read.locations_of_steps2.add(j); // 77 position //
+            case "check_box" -> write_to_excel_and_read.locations_of_steps2.add(j); // 80 position //
+            case "login" -> write_to_excel_and_read.locations_of_steps2.add(j); // 83 position //
+            case "go_signup" -> write_to_excel_and_read.locations_of_steps2.add(j); // 86 position //
         }}
-
-        for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
+    for (int i = 0; i < write_to_excel_and_read.list_of_steps.size(); i++) {
             if (i > write_to_excel_and_read.locations_of_steps2.get(0) && i < write_to_excel_and_read.locations_of_steps2.get(1)) {// tests of login first button //
                 list_of_steps_first_login.add(write_to_excel_and_read.list_of_steps.get(i));
             }
@@ -74,17 +73,7 @@ public static WebElement GO_SIGNUP(WebDriver driver) {
             if (i > write_to_excel_and_read.locations_of_steps2.get(7) ) {// tests of go signup //
                 list_of_steps_go_signup.add(write_to_excel_and_read.list_of_steps.get(i));
             }
-             }log_in_first_btn();
-        System.out.println(write_to_excel_and_read.locations_of_steps2);
-        System.out.println(list_of_steps_first_login);
-        System.out.println(list_of_steps_social);
-        System.out.println(list_of_steps_username_login);
-        System.out.println(list_of_steps_password);
-        System.out.println(list_of_steps_checkbox);
-        System.out.println(list_of_steps_forgot_pw);
-        System.out.println(list_of_steps_last_login);
-        System.out.println(list_of_steps_go_signup);
-    }
+    }log_in_first_btn();}
 
 
 @Test

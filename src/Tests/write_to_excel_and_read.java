@@ -25,7 +25,7 @@ public class write_to_excel_and_read {
         XSSFSheet sheet = wb.getSheet(SheetName);
         int last = sheet.getLastRowNum();
         System.out.println(last);
-        for (int i = 0; i < last; i++) {
+        for (int i = 0; i <=last; i++) {
             XSSFRow name_row = sheet.getRow(i);
             XSSFCell name_cell = name_row.getCell(0);
             CellType type = name_cell.getCellType();
